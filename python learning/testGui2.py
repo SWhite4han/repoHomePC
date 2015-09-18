@@ -3,8 +3,8 @@ from tkinter import *
 class GUIDemo(Frame):   # 繼承tkinter中的Frame，Frame是個沒有元件的視窗
     def __init__(self, master=None):    # _init_需要預設master參數
         Frame.__init__(self, master)
-        self.grid()
-        self.createWidgets()
+        self.grid()         # 繼承自Frame的方法，表示我們在這個GUI中要使用格子式幾何版面管理(grid geometry manager) 
+        self.createWidgets()    # 用來加入視窗元件的方法
  
     def createWidgets(self):
         self.inputText = Label(self)
@@ -12,7 +12,8 @@ class GUIDemo(Frame):   # 繼承tkinter中的Frame，Frame是個沒有元件的�
         self.inputText.grid(row=0, column=0)
         self.inputField = Entry(self)
         self.inputField["width"] = 50
-        self.inputField.grid(row=0, column=1, columnspan=6)
+        # 設定self.inputField在由上數下來第0列，從左往右第1行，然後水平擴展6格
+        self.inputField.grid(row=0, column=1, columnspan=6) 
  
         self.outputText = Label(self)
         self.outputText["text"] = "Output:"
